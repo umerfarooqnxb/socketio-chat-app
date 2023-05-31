@@ -20,6 +20,9 @@ io.on('connection', (socket) => {
     // Here we can use the method on socket to communicate with specific clients
     const greet = "Welcome !"
     socket.emit('message', greet)
+    socket.on('sendMessage', (msg) => {
+        io.emit("chatMessage", msg)
+    })
 })
 
 
